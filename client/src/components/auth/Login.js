@@ -3,11 +3,8 @@ import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 
 const Login = props => {
-  const alertContext = useContext(AlertContext);
-  const authContext = useContext(AuthContext);
-
-  const { setAlert } = alertContext;
-  const { login, error, clearErrors, isAuthenticated } = authContext;
+  const { setAlert } = useContext(AlertContext);
+  const { login, error, clearErrors, isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -39,27 +36,27 @@ const Login = props => {
   };
 
   return (
-    <div className='form-container'>
+    <div className="form-container">
       <h1>
-        Account <span className='text-primary'>Login</span>
+        Account <span className="text-primary">Login</span>
       </h1>
       <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='email'>Email</label>
-          <input type='email' name='email' value={email} onChange={onChange} required />
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" value={email} onChange={onChange} required />
         </div>
-        <div className='form-group'>
-          <label htmlFor='password'>Password</label>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
           <input
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             value={password}
             onChange={onChange}
             required
           />
         </div>
 
-        <input type='submit' value='Login' className='btn btn-primary btn-block' />
+        <input type="submit" value="Login" className="btn btn-primary btn-block" />
       </form>
     </div>
   );
